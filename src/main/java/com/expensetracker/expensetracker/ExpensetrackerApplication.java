@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
-//@ComponentScan(basePackages = "com.bedmanagement.bedtracker")
 @EnableJpaRepositories(basePackages = "com.expensetracker.expensetracker.io.repository")
 @SpringBootApplication
 public class ExpensetrackerApplication {

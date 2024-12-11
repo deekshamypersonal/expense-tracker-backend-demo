@@ -14,13 +14,8 @@ import lombok.Setter;
 public class BudgetResponse {
 
     private long id;
-
-
     private String Category;
-
-
     private Double amount;
-
     private String email;
 
 }

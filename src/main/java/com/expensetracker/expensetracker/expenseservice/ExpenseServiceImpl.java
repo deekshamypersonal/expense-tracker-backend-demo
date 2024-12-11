@@ -229,9 +229,9 @@ public class ExpenseServiceImpl implements ExpenseService {
     public List<BudgetResponse> getBudgets() {
         String email = getLoggedInUser();
         List<Budget> budgets = budgetRepository.findByEmail(email);
-        if (budgets.isEmpty()) {
-            throw new BudgetNotFoundException("No budgets found for user: " + email);
-        }
+//        if (budgets.isEmpty()) {
+//            throw new BudgetNotFoundException("No budgets found for user: " + email);
+//        }
         return budgets.stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
@@ -248,7 +248,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     @Override
     public List<ExpenseResponse> getExpense() {
         String currentPrincipalName = getLoggedInUser();
-        List<Expense> expenseList = expenseRepository.findByEmail(currentPrincipalName);
+        List<Expense> expenseList = expenseRepository.findByEmailForCurrentMonthAndYear(currentPrincipalName);
         if (expenseList.isEmpty()) {
             throw new ExpenseNotFoundException("No expenses found for user: " + currentPrincipalName);
         }
@@ -259,7 +259,19 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public Double getTotal() {
-        return expenseRepository.findTotalExpenseForCurrentMonthByemail(getLoggedInUser());
+//        double x=0.0;
+//        try {
+//            x= expenseRepository.findTotalExpenseForCurrentMonthByemail(getLoggedInUser());
+//        }
+//        catch(Exception e){
+//            System.out.println(e.getMessage());
+//        }
+        Double totalExpense = expenseRepository.findTotalExpenseForCurrentMonthByemail(getLoggedInUser());
+        //return totalExpense != null ? totalExpense : 0.0;
+        totalExpense = totalExpense != null ? totalExpense : 0.0;
+
+        return Double.valueOf(String.format("%.2f", totalExpense));
+       // return x;
     }
 
     private static String getLoggedInUser() {

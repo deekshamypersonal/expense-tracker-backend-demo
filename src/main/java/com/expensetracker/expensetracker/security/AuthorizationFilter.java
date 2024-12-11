@@ -63,10 +63,6 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
                 .getBody();
         String user=claims.getSubject();
 
-        // UserRepository userRepository=(UserRepository)SpringApplicationContext.getBean("userRepository");
-
-       // User userEntity = userRepository.findByEmail(user);
-  //      List<GrantedAuthority> authorities=UserServiceImpl.getGrantedAuthorities(userEntity);
 
         if (user != null) {
             return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());

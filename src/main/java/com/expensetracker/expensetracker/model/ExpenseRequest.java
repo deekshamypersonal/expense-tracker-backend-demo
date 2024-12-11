@@ -9,14 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ExpenseRequest {
 
-
-
-
     private String Description;
-
-
-
-
 
     private String category;
 

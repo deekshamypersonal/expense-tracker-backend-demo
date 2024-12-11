@@ -49,6 +49,7 @@ public class WebSecurity {
                 .authorizeHttpRequests(req ->
                         req.requestMatchers("/register").permitAll()
                                 .requestMatchers("/test1").permitAll()
+                                .requestMatchers("/test2").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
