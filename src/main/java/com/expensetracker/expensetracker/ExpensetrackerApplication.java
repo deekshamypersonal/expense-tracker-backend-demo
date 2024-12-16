@@ -1,5 +1,8 @@
 package com.expensetracker.expensetracker;
 
+import com.expensetracker.expensetracker.io.entity.User;
+import com.expensetracker.expensetracker.io.repository.UserRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -20,4 +23,20 @@ public class ExpensetrackerApplication {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+
+	@Bean
+	CommandLineRunner initDatabase(UserRepository userRepository, BCryptPasswordEncoder encoder) {
+		return args -> {
+			if (userRepository.findByEmail("userdemo@gmail.com") == null) {
+				User demoUser = new User();
+				demoUser.setIdentifier("demo");
+				demoUser.setFirstName("Demo");
+				demoUser.setLastName("User");
+				demoUser.setEmail("userdemo@gmail.com");
+				demoUser.setEncryptedPassword(encoder.encode("Demo2024!Secure"));
+				userRepository.save(demoUser);
+			}
+		};
+	}
 }
+

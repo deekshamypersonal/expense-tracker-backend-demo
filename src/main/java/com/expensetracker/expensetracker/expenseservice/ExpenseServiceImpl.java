@@ -249,9 +249,9 @@ public class ExpenseServiceImpl implements ExpenseService {
     public List<ExpenseResponse> getExpense() {
         String currentPrincipalName = getLoggedInUser();
         List<Expense> expenseList = expenseRepository.findByEmailForCurrentMonthAndYear(currentPrincipalName);
-        if (expenseList.isEmpty()) {
-            throw new ExpenseNotFoundException("No expenses found for user: " + currentPrincipalName);
-        }
+//        if (expenseList.isEmpty()) {
+//            throw new ExpenseNotFoundException("No expenses found for user: " + currentPrincipalName);
+//        }
         return expenseList.stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
