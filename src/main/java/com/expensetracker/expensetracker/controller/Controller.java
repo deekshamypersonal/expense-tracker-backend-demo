@@ -91,6 +91,13 @@ public class Controller {
 
     }
 
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+
+
+    }
+
     @GetMapping(path = "/getExpense")
     List<ExpenseResponse> getExpense() {
         return expenseService.getExpense();
