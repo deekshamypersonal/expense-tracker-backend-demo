@@ -33,7 +33,7 @@ public class ExpensetrackerApplication {
 				demoUser.setFirstName("Demo");
 				demoUser.setLastName("User");
 				demoUser.setEmail("userdemo@gmail.com");
-				demoUser.setEncryptedPassword(encoder.encode("Demo2024!Secure"));
+				demoUser.setEncryptedPassword(encoder.encode("Demo2024!"));
 				userRepository.save(demoUser);
 			}
 		};
