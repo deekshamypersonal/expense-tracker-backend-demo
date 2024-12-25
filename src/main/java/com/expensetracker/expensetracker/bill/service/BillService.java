@@ -16,10 +16,20 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
+import org.springframework.core.io.ClassPathResource;
+
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 
 @Service
@@ -80,10 +90,41 @@ public class BillService {
     }
 
     private String performOCR(BufferedImage image) throws TesseractException, IOException {
+//        Tesseract tesseract = new Tesseract();
+//        File tessDataFolder = new ClassPathResource("eng.traineddata").getFile().getParentFile();
+//        tesseract.setDatapath(tessDataFolder.getAbsolutePath());
+//        tesseract.setLanguage("eng");
+//        return tesseract.doOCR(image).toLowerCase();
+
+        logger.info("performOCR accessed");
+
+        // 1) Locate the resource inside the JAR
+        ClassPathResource trainedDataResource = new ClassPathResource("eng.traineddata");
+
+        if (!trainedDataResource.exists()) {
+            // Log or throw an error if the file truly isn't in resources
+            logger.info("eng.traineddata not found in resources!");
+            throw new FileNotFoundException("eng.traineddata not found in resources!");
+        }
+
+        // 2) Create a temporary directory for Tesseract’s data
+        Path tempDir = Files.createTempDirectory("tess_");
+        File tessDataFile = new File(tempDir.toFile(), "eng.traineddata");
+
+        // 3) Copy the .traineddata file out of the JAR into this directory
+        try (InputStream in = trainedDataResource.getInputStream();
+             OutputStream out = new FileOutputStream(tessDataFile)) {
+            in.transferTo(out);
+        }
+
+        // 4) Configure Tesseract to use this temp dir
         Tesseract tesseract = new Tesseract();
-        File tessDataFolder = new ClassPathResource("eng.traineddata").getFile().getParentFile();
-        tesseract.setDatapath(tessDataFolder.getAbsolutePath());
-        tesseract.setLanguage("eng");
+        tesseract.setDatapath(tempDir.toString()); // points to /tmp/... on Heroku
+        tesseract.setLanguage("eng"); // use eng.traineddata
+
+        logger.info("performOCR over");
+
+        // 5) Perform OCR
         return tesseract.doOCR(image).toLowerCase();
     }
 
