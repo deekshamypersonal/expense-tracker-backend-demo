@@ -1,42 +1,23 @@
 package com.expensetracker.expensetracker.controller;
 
 import com.expensetracker.expensetracker.expenseservice.ExpenseService;
-import com.expensetracker.expensetracker.io.entity.Budget;
-import com.expensetracker.expensetracker.io.entity.Expense;
-import com.expensetracker.expensetracker.io.entity.User;
-import com.expensetracker.expensetracker.io.repository.BudgetRepository;
-import com.expensetracker.expensetracker.io.repository.ExpenseRepository;
-import com.expensetracker.expensetracker.io.repository.UserRepository;
 import com.expensetracker.expensetracker.model.*;
 import com.expensetracker.expensetracker.user.service.impl.UserServiceImpl;
-import net.sourceforge.tess4j.Tesseract;
-import net.sourceforge.tess4j.TesseractException;
-import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 @RestController
 public class Controller {
+
+    private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
     @Autowired
     ExpenseService expenseService;
@@ -93,7 +74,12 @@ public class Controller {
 
     @GetMapping("/test")
     public String test() {
-        return "test";
+
+        logger.info("Test endpoint accessed.");
+        System.out.println("printlog");
+        String response = "test";
+        logger.info("Test endpoint response: {}", response);
+        return response;
 
 
     }
