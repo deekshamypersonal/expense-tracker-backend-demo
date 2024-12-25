@@ -61,7 +61,7 @@ public class BillService {
 
         } catch (IOException | TesseractException e) {
             e.printStackTrace();
-            return "Error processing bill. Expense not added.";
+            return "Error processing bill. Expense not added. ABC";
         } catch (Exception e) {
             e.printStackTrace();
             return "An error occurred. Expense not added.";
