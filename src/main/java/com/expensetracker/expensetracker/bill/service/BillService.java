@@ -149,9 +149,12 @@ public class BillService {
             in.transferTo(out);
         }
 
+        System.setProperty("jna.library.path", "/app/.apt/usr/lib/");
+
         // Configure Tesseract to use this temp directory
         Tesseract tesseract = new Tesseract();
-        tesseract.setDatapath(tempDir.toString()); // Set temporary directory as tessdata path
+        tesseract.setDatapath("/app/.apt/usr/share/tesseract-ocr/4.00/tessdata/");
+       // tesseract.setDatapath(tempDir.toString()); // Set temporary directory as tessdata path
         tesseract.setLanguage("eng");
 
         logger.info("Tesseract OCR configuration completed");
