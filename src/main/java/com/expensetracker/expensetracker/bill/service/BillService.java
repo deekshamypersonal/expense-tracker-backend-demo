@@ -1,11 +1,14 @@
 package com.expensetracker.expensetracker.bill.service;
 //
 //
+import com.expensetracker.expensetracker.bill.controller.BillController;
 import com.expensetracker.expensetracker.bill.service.classification.ExpenseClassifier;
 import com.expensetracker.expensetracker.expenseservice.ExpenseService;
 import com.expensetracker.expensetracker.model.ExpenseRequest;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,6 +25,8 @@ import java.util.regex.Pattern;
 @Service
 public class BillService {
 
+    private static final Logger logger = LoggerFactory.getLogger(BillService.class);
+
     private final ExpenseClassifier expenseClassifier;
     private final ExpenseService expenseService;
 
@@ -33,6 +38,8 @@ public class BillService {
     public String processFile(MultipartFile file) {
         try {
             // Check file type (PNG or JPEG)
+
+            logger.info("MultipartFile accessed.");
             String contentType = file.getContentType();
             if (contentType == null ||
                     (!contentType.equals("image/png") && !contentType.equals("image/jpeg"))) {
@@ -59,7 +66,11 @@ public class BillService {
             expenseService.setExpense(expenseRequest);
             return "Expense added successfully. Please refresh to see updates.";
 
-        } catch (IOException | TesseractException e) {
+        } catch (TesseractException e) {
+            e.printStackTrace();
+            return "TesseractException exception occured. ABC";
+        }
+        catch (IOException e) {
             e.printStackTrace();
             return "Error processing bill. Expense not added. ABC";
         } catch (Exception e) {
