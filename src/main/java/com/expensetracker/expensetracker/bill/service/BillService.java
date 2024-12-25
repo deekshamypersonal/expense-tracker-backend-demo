@@ -103,7 +103,7 @@ public class BillService {
 
         if (!trainedDataResource.exists()) {
             // Log or throw an error if the file truly isn't in resources
-            logger.info("eng.traineddata not found in resources!");
+            logger.info("eng.traineddata not found in resources!!");
             throw new FileNotFoundException("eng.traineddata not found in resources!");
         }
 
