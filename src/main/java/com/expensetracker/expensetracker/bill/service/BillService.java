@@ -135,7 +135,7 @@ public class BillService {
         ClassPathResource trainedDataResource = new ClassPathResource("eng.traineddata");
 
         if (!trainedDataResource.exists()) {
-            logger.error("eng.traineddata not found in resources!");
+            logger.error("eng.traineddata not found in resources!!");
             throw new FileNotFoundException("eng.traineddata not found in resources!");
         }
 
