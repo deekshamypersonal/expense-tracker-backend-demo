@@ -90,87 +90,112 @@ public class BillService {
     }
 
     private String performOCR(BufferedImage image) throws TesseractException, IOException {
-//        Tesseract tesseract = new Tesseract();
-//        File tessDataFolder = new ClassPathResource("eng.traineddata").getFile().getParentFile();
-//        tesseract.setDatapath(tessDataFolder.getAbsolutePath());
-//        tesseract.setLanguage("eng");
-//        return tesseract.doOCR(image).toLowerCase();
-
+////        Tesseract tesseract = new Tesseract();
+////        File tessDataFolder = new ClassPathResource("eng.traineddata").getFile().getParentFile();
+////        tesseract.setDatapath(tessDataFolder.getAbsolutePath());
+////        tesseract.setLanguage("eng");
+////        return tesseract.doOCR(image).toLowerCase();
+//
+////        logger.info("performOCR accessed");
+////
+////        // 1) Locate the resource inside the JAR
+////        ClassPathResource trainedDataResource = new ClassPathResource("eng.traineddata");
+////
+////        if (!trainedDataResource.exists()) {
+////            // Log or throw an error if the file truly isn't in resources
+////            logger.info("eng.traineddata not found in resources!!");
+////            throw new FileNotFoundException("eng.traineddata not found in resources!");
+////        }
+////
+////        // 2) Create a temporary directory for Tesseract’s data
+////        Path tempDir = Files.createTempDirectory("tess_");
+////        File tessDataFile = new File(tempDir.toFile(), "eng.traineddata");
+////
+////        // 3) Copy the .traineddata file out of the JAR into this directory
+////        try (InputStream in = trainedDataResource.getInputStream();
+////             OutputStream out = new FileOutputStream(tessDataFile)) {
+////            in.transferTo(out);
+////        }
+////
+////        // 4) Configure Tesseract to use this temp dir
+////        Tesseract tesseract = new Tesseract();
+////        tesseract.setDatapath(tempDir.toString()); // points to /tmp/... on Heroku
+////        tesseract.setLanguage("eng"); // use eng.traineddata
+////
+////        logger.info("performOCR over");
+////
+////        // 5) Perform OCR
+////        return tesseract.doOCR(image).toLowerCase();
+//
+//        //---------------------------------------
+//
 //        logger.info("performOCR accessed");
 //
-//        // 1) Locate the resource inside the JAR
+//        // Locate the .traineddata file inside the JAR
 //        ClassPathResource trainedDataResource = new ClassPathResource("eng.traineddata");
 //
 //        if (!trainedDataResource.exists()) {
-//            // Log or throw an error if the file truly isn't in resources
-//            logger.info("eng.traineddata not found in resources!!");
+//            logger.error("eng.traineddata not found in resources!!");
 //            throw new FileNotFoundException("eng.traineddata not found in resources!");
 //        }
 //
-//        // 2) Create a temporary directory for Tesseract’s data
+//        // Create a temporary directory for Tesseract's data
 //        Path tempDir = Files.createTempDirectory("tess_");
 //        File tessDataFile = new File(tempDir.toFile(), "eng.traineddata");
 //
-//        // 3) Copy the .traineddata file out of the JAR into this directory
+//        // Copy the .traineddata file out of the JAR into this directory
 //        try (InputStream in = trainedDataResource.getInputStream();
 //             OutputStream out = new FileOutputStream(tessDataFile)) {
 //            in.transferTo(out);
 //        }
 //
-//        // 4) Configure Tesseract to use this temp dir
+//        System.setProperty("jna.library.path", "/app/.apt/usr/lib/");
+//
+//        // Configure Tesseract to use this temp directory
 //        Tesseract tesseract = new Tesseract();
-//        tesseract.setDatapath(tempDir.toString()); // points to /tmp/... on Heroku
-//        tesseract.setLanguage("eng"); // use eng.traineddata
+//        tesseract.setDatapath("/app/.apt/usr/share/tesseract-ocr/4.00/tessdata/");
+//       // tesseract.setDatapath(tempDir.toString()); // Set temporary directory as tessdata path
+//        tesseract.setLanguage("eng");
 //
-//        logger.info("performOCR over");
+//        logger.info("Tesseract OCR configuration completed");
 //
-//        // 5) Perform OCR
-//        return tesseract.doOCR(image).toLowerCase();
+//        // Perform OCR
+//        String result = tesseract.doOCR(image).toLowerCase();
+//
+//        // Cleanup: Delete temp directory
+//        Files.walk(tempDir)
+//                .sorted((a, b) -> b.compareTo(a)) // Reverse order to delete files first
+//                .map(Path::toFile)
+//                .forEach(File::delete);
+//
+//        logger.info("performOCR completed successfully");
+//
+//        return result;
 
-        //---------------------------------------
+        //-----------------------------------------------
 
-        logger.info("performOCR accessed");
+        // 1) Load as InputStream
+        ClassPathResource resource = new ClassPathResource("eng.traineddata");
+        InputStream trainedDataStream = resource.getInputStream();
 
-        // Locate the .traineddata file inside the JAR
-        ClassPathResource trainedDataResource = new ClassPathResource("eng.traineddata");
+        // 2) Create a temporary directory for Tesseract data
+        File tempTessDataDir = Files.createTempDirectory("tessdata").toFile();
 
-        if (!trainedDataResource.exists()) {
-            logger.error("eng.traineddata not found in resources!!");
-            throw new FileNotFoundException("eng.traineddata not found in resources!");
+        // 3) Copy the eng.traineddata file into that directory
+        File tessDataFile = new File(tempTessDataDir, "eng.traineddata");
+        try (OutputStream out = new FileOutputStream(tessDataFile)) {
+            trainedDataStream.transferTo(out);
         }
 
-        // Create a temporary directory for Tesseract's data
-        Path tempDir = Files.createTempDirectory("tess_");
-        File tessDataFile = new File(tempDir.toFile(), "eng.traineddata");
-
-        // Copy the .traineddata file out of the JAR into this directory
-        try (InputStream in = trainedDataResource.getInputStream();
-             OutputStream out = new FileOutputStream(tessDataFile)) {
-            in.transferTo(out);
-        }
-
-        System.setProperty("jna.library.path", "/app/.apt/usr/lib/");
-
-        // Configure Tesseract to use this temp directory
+        // 4) Initialize Tesseract
         Tesseract tesseract = new Tesseract();
-        tesseract.setDatapath("/app/.apt/usr/share/tesseract-ocr/4.00/tessdata/");
-       // tesseract.setDatapath(tempDir.toString()); // Set temporary directory as tessdata path
+        // Tesseract expects the file to be in a 'tessdata' subdirectory, or you can set a special config
+        // For simplicity, if your "eng.traineddata" is right in tempTessDataDir, do:
+        tesseract.setDatapath(tempTessDataDir.getAbsolutePath());
         tesseract.setLanguage("eng");
 
-        logger.info("Tesseract OCR configuration completed");
-
-        // Perform OCR
-        String result = tesseract.doOCR(image).toLowerCase();
-
-        // Cleanup: Delete temp directory
-        Files.walk(tempDir)
-                .sorted((a, b) -> b.compareTo(a)) // Reverse order to delete files first
-                .map(Path::toFile)
-                .forEach(File::delete);
-
-        logger.info("performOCR completed successfully");
-
-        return result;
+        // 5) Perform OCR
+        return tesseract.doOCR(image).toLowerCase();
     }
 
     private void extractPrice(String text, ExpenseRequest expenseRequest) {
