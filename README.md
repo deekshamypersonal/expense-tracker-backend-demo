@@ -69,9 +69,10 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/expense-tracker.git
-cd backend
-mvn clean install
-mvn spring-boot:run
+2. Build the project using Maven:
+   ```bash
+   mvn clean install
+
 
 cd frontend
 npm install
