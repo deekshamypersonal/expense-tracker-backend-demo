@@ -33,7 +33,7 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 - **Visual Budget Comparison:** Detect over-budget usage.
 - **Pie Chart Visualization:** Displays categorized expenses in an interactive chart.
 - **Budget Management:** Set budgets for each category and get alerts for over-budget expenses.
-- **OCR Bill Upload:** Automatically extracts text from the uploaded image (PNG/JPEG) to assign a category.
+- **OCR Bill Upload:** Extracts text from the uploaded image (PNG/JPEG) and  automatically assigns expenditure category.
 - **Expense Management:** View and delete expenses in a sortable table.
 
 ---
