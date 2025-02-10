@@ -55,18 +55,21 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 ---
 
 ## Screenshots
-![Login Page](<img width="788" alt="image" src="https://github.com/user-attachments/assets/e55edc0a-402e-4c3b-a0e3-d7cc3c063d3f" />
-)
+
+### Login Page
+![Login Page](https://github.com/user-attachments/assets/e55edc0a-402e-4c3b-a0e3-d7cc3c063d3f)
 *Login page with pre-filled demo credentials.*
 
-![Expense Dashboard](<img width="880" alt="image" src="https://github.com/user-attachments/assets/53eb3e39-69ce-4a92-9443-d68c5817756b" />
-)(<img width="868" alt="image" src="https://github.com/user-attachments/assets/3af3ab03-4ad5-4e52-a04d-a0917a73c427" />
-)
+### Expense Dashboard
+![Expense Dashboard](https://github.com/user-attachments/assets/53eb3e39-69ce-4a92-9443-d68c5817756b)
+
+![Expense Dashboard](https://github.com/user-attachments/assets/3af3ab03-4ad5-4e52-a04d-a0917a73c427)
 *Dashboard showcasing pie chart and expense list.*
 
-![OCR Bill Upload](<img width="881" alt="image" src="https://github.com/user-attachments/assets/7ae09b00-0233-4314-9981-229685f3974a" />
-)
+### OCR Bill Upload
+![OCR Bill Upload](https://github.com/user-attachments/assets/7ae09b00-0233-4314-9981-229685f3974a)
 *Upload bills and auto-extract details using OCR.*
+
 
 ---
 
