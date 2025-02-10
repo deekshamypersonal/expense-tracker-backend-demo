@@ -65,15 +65,30 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 2. **Node.js** and **npm/yarn**
 3. Maven (for Spring Boot)
 
-### Steps
+### Backend Setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/expense-tracker.git
 2. Build the project using Maven:
    ```bash
    mvn clean install
+3. Run the application:
+   ```bash
+   mvn spring-boot:run
+4. The backend will be available at:
+      [http://localhost:8080](http://localhost:8080)
+
+### Frontend Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/expense-tracker.git
+2. Install dependencies:
+   ```bash
+   npm install
+3. Start the development server:
+   ```bash
+   npm start
+4. The frontend will be available at:
+      [http://localhost:8080](http://localhost:2156)
 
 
-cd frontend
-npm install
-npm start
