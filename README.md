@@ -15,14 +15,13 @@ An Expense Tracking application built with **Spring Boot** (backend) and **React
 - [Screenshots](#screenshots)
 - [Setup & Installation](#setup--installation)
 - [Future Enhancements](#future-enhancements)
-- [License](#license)
 
 ---
 
 ## Demo Credentials
 Use the following credentials to log in:
 - **Username (Email):** `userdemo@gmail.com`
-- **Password:** `Demo2024!` *(or any credentials you’ve specified during setup)*
+- **Password:** `Demo2024!`
 
 On the login screen, these demo credentials may be pre-filled for convenience.
 
