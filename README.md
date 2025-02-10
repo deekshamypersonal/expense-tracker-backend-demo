@@ -1,4 +1,11 @@
-# Expense Tracker (Demo App)
+# Expense Tracker
+
+## Live Demo
+
+The deployed application can be accessed via the following link:
+
+🔗 [Expense Tracker App](https://willowy-licorice-a48823.netlify.app/login)
+
 
 An Expense Tracking application built with **Spring Boot** (backend) and **React** (frontend). Users can:
 - Add expenses manually or by uploading a bill image (OCR-powered). The app automatically categorizes the expense.
