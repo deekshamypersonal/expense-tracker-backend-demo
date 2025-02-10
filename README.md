@@ -1,12 +1,10 @@
 # Expense Tracker (Demo App)
 
 An Expense Tracking application built with **Spring Boot** (backend) and **React** (frontend). Users can:
-- Add expenses manually or by uploading a bill image (OCR-powered).
-- Manage budgets.
-- View visual summaries via a pie chart.
-
-> **Note:** This is a demo app using an in-memory H2 database. Data resets on every new application start.  
-> For demonstration, sign-up is disabled, and only a demo account can be used.
+- Add expenses manually or by uploading a bill image (OCR-powered). The app automatically categorizes the expense.
+- Manage budgets and receive alerts if spending exceeds the set budget for any category.
+- View visual summaries via an interactive pie chart.
+- Gain **AI-powered weekly insights** into their monthly expenditures for better financial planning.
 
 ---
 
@@ -43,7 +41,7 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 
 ## Tech Stack
 - **Frontend:** React (JavaScript), Tailwind CSS / Basic CSS for styling, Chart.js for pie chart visualization.
-- **Backend:** Spring Boot (Java), Spring Security (JWT-based authentication), H2 in-memory database for demo purposes.
+- **Backend:** Spring Boot (Java), Spring Security (JWT-based authentication), SQL database.
 - **OCR:** Tesseract (via Tess4J).
 - **Build/Deployment:** Maven for Spring Boot backend and NPM/Yarn for React frontend.
 
