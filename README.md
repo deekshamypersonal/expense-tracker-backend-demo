@@ -5,6 +5,14 @@ The deployed application can be accessed via the following link:
 🔗 [Expense Tracker App](https://willowy-licorice-a48823.netlify.app/login)
 
 
+## GitHub Repositories
+
+### Backend Repository
+🔗 [Expense Tracker Backend](https://github.com/deekshamypersonal/expense-tracker-backend.git)
+
+### Frontend Repository
+🔗 [Expense Tracker Frontend](https://github.com/deekshamypersonal/expense-tracker-frontend.git)
+
 
 # Expense Tracker
 
