@@ -1,6 +1,8 @@
 package com.expensetracker.expensetracker.bill.controller;
 
+import com.expensetracker.expensetracker.bill.dto.BillResponse;
 import com.expensetracker.expensetracker.bill.service.BillService;
+import com.expensetracker.expensetracker.model.ExpenseRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +19,24 @@ public class BillController {
     @Autowired
     private BillService billService;
 
+////    @PostMapping("/upload")
+////    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
+////        logger.info("handleFileUpload accessed.");
+////        return billService.processFile(file);
+////
+////    }
+//
+//    @PostMapping("/upload")
+//    public ExpenseRequest handleFileUpload(@RequestParam("file") MultipartFile file) {
+//        logger.info("handleFileUpload accessed.");
+//        return billService.processFile(file);
+//
+//    }
+
     @PostMapping("/upload")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
+    public BillResponse handleFileUpload(@RequestParam("file") MultipartFile file) {
         logger.info("handleFileUpload accessed.");
         return billService.processFile(file);
-
     }
 
 }

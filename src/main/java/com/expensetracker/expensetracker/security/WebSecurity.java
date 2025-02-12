@@ -49,6 +49,8 @@ public class WebSecurity {
                 .authorizeHttpRequests(req ->
                         req.requestMatchers("/register").permitAll()
                                 .requestMatchers("/test").permitAll()
+                                .requestMatchers("/api/insights/test").permitAll()
+                                .requestMatchers("/api/insights/test/1").permitAll()
                                 .requestMatchers("/h2-console/**").permitAll()
                                 .anyRequest().authenticated()
                 )
