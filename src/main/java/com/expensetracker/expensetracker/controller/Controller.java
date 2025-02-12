@@ -29,12 +29,7 @@ public class Controller {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/test1")
-    public String test1() {
-        // 1) Get logged-in user email from security context
 
-        return "test1";
-    }
 
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
@@ -98,6 +93,18 @@ public class Controller {
         System.out.println("printlog");
         String response = "test";
         logger.info("Test endpoint response: {}", response);
+        return response;
+
+
+    }
+
+    @GetMapping("/test1")
+    public String test1() {
+
+        logger.info("Test endpoint accessed.1");
+        System.out.println("printlog1");
+        String response = "test1";
+        logger.info("Test endpoint response: {1}", response);
         return response;
 
 
