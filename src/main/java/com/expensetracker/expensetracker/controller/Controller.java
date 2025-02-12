@@ -1,6 +1,10 @@
 package com.expensetracker.expensetracker.controller;
 
 import com.expensetracker.expensetracker.expenseservice.ExpenseService;
+import com.expensetracker.expensetracker.insights.Insight;
+import com.expensetracker.expensetracker.insights.InsightResponse;
+import com.expensetracker.expensetracker.insights.InsightService;
+import com.expensetracker.expensetracker.io.repository.UserRepository;
 import com.expensetracker.expensetracker.model.*;
 import com.expensetracker.expensetracker.user.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
@@ -9,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +22,19 @@ import java.util.Map;
 
 @RestController
 public class Controller {
+
+    @Autowired
+    private InsightService insightService;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @GetMapping("/test1")
+    public String test1() {
+        // 1) Get logged-in user email from security context
+
+        return "test1";
+    }
 
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
@@ -92,6 +111,27 @@ public class Controller {
     @GetMapping(path = "/getTotal")
     Double getTotal() {
         return expenseService.getTotal();
+    }
+
+
+    @GetMapping("/api/insights")
+    public InsightResponse getInsightsForCurrentUser() {
+        // 1) Get logged-in user email from security context
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = auth.getName();
+        // fetch the single insight
+        Insight insight = insightService.getInsightForUser(email);
+        return convertToDto(insight);
+    }
+
+
+    private InsightResponse convertToDto(Insight insight) {
+        if (insight == null) return null; // handle no insight found
+        InsightResponse dto = new InsightResponse();
+        dto.setId(insight.getId());
+        dto.setInsightText(insight.getInsightText());
+        dto.setGeneratedAt(insight.getGeneratedAt());
+        return dto;
     }
 
 }
