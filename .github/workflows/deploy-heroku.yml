@@ -19,11 +19,11 @@ jobs:
 
       - name: Install Heroku CLI
         run: curl https://cli-assets.heroku.com/install.sh | sh
-
-      - name: Set Heroku Stack to Container
-        run: |
-          heroku stack:set container -a ${{ secrets.HEROKU_APP_NAME }}
-          heroku stack -a ${{ secrets.HEROKU_APP_NAME }}
+#
+#      - name: Set Heroku Stack to Container
+#        run: |
+#          heroku stack:set container -a ${{ secrets.HEROKU_APP_NAME }}
+#          heroku stack -a ${{ secrets.HEROKU_APP_NAME }}
 
       - name: Build JAR file using Maven
         run: |
