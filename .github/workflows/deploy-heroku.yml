@@ -17,6 +17,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Install Heroku CLI
+        run: curl https://cli-assets.heroku.com/install.sh | sh
+
       - name: Build JAR file using Maven
         run: |
           chmod +x mvnw
@@ -29,6 +32,6 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
           dockerfile_directory: ./
-          dockerfile_name: dockerfile
+          dockerfile_name: Dockerfile
           docker_options: "--no-cache"
           process_type: web
