@@ -62,6 +62,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,6 +78,7 @@ public class ExpensetrackerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ExpensetrackerApplication.class, args);
+
     }
 
     @Bean
