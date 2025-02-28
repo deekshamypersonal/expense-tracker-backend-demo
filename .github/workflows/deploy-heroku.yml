@@ -3,7 +3,7 @@ name: Deploy to Heroku
 on:
   push:
     branches:
-      - main  # Change this if using a different branch
+      - main  # Runs only when pushing to main branch
 
 jobs:
   deploy:
@@ -18,6 +18,9 @@ jobs:
 
       - name: Login to Heroku Container Registry
         run: echo "${{ secrets.HEROKU_API_KEY }}" | docker login --username=_ --password-stdin registry.heroku.com
+
+      - name: Disable Docker Buildx (Force Standard Docker)
+        run: docker build --help  # This initializes standard Docker
 
       - name: Build and push Docker image
         run: |
