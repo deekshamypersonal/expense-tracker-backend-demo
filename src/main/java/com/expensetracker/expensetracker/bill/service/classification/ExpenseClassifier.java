@@ -8,7 +8,7 @@ import java.util.*;
 @Service
 public class ExpenseClassifier {
 
-    // Direct merchant-to-category mappings (learned over time)
+    // Direct merchant-to-category mappings
     private Map<String, String> merchantToCategoryMap = new HashMap<>();
 
     // Category to keyword mapping for fallback classification
@@ -68,7 +68,7 @@ public class ExpenseClassifier {
         return null;
     }
 
-    // Simple heuristic to guess a merchant name line
+    // To guess a merchant name line
     private boolean isLikelyMerchantName(String line) {
         if (line == null || line.trim().isEmpty()) return false;
         String trimmed = line.trim();

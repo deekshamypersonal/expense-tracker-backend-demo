@@ -89,7 +89,7 @@ public class ExpensetrackerApplication {
 
     /**
      * This CommandLineRunner runs at app startup. It creates a demo user if not present,
-     * then inserts 6 default expenses and budgets if they don't exist yet.
+     * then inserts 6 default expenses and budgets if they don't exist
      */
     @Bean
     CommandLineRunner initDatabase(

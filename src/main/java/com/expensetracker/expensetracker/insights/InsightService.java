@@ -35,7 +35,6 @@ public class InsightService {
 
     /**
      * Generate weekly insights for ALL users in the system.
-     * You could also tailor this to just the "demo" user if you prefer.
      */
     public void generateWeeklyInsightsForAllUsers() {
         List<User> allUsers = (List<User>) userRepository.findAll();
@@ -44,7 +43,6 @@ public class InsightService {
             try {
                 generateInsightForUser(user);
             } catch (Exception e) {
-                // handle or log error, so one user error doesn't break the entire loop
                 e.printStackTrace();
             }
         }
@@ -53,7 +51,7 @@ public class InsightService {
     private void generateInsightForUser(User user) {
         // 1) Fetch budgets for user
         List<Budget> budgets = budgetRepository.findByEmail(user.getEmail());
-        // 2) Fetch expenses for user (for the current month, for example)
+        // 2) Fetch expenses for user
         List<Expense> expenses = expenseRepository.findByEmailForCurrentMonthAndYear(user.getEmail());
 
         // 3) Build a prompt with the relevant data
@@ -62,9 +60,6 @@ public class InsightService {
 
         String aiResponse = llmClient.generateTextFromPrompt(prompt);
 
-
-        //We are returning an Optional<Insight>, we want to avoid throwing an exception when no record is found.
-        // Instead, we get an empty Optional, which we can handle gracefully.
 
         Optional<Insight> optionalExisting = insightRepository.findByUserEmail(user.getEmail());
 
@@ -87,8 +82,7 @@ public class InsightService {
     }
 
     /**
-     * Builds a textual prompt from budgets and expenses.
-     * Adjust as needed for your domain.
+     * Builds a prompt from budgets and expenses.
      */
     private String buildPrompt(User user, List<Budget> budgets, List<Expense> expenses) {
         StringBuilder sb = new StringBuilder();
@@ -117,21 +111,13 @@ public class InsightService {
                     .append("\n");
         }
 
-        // You can also add total expenses, date range, or any additional instructions
+
         sb.append("\nPlease provide a concise but insightful analysis. "
                 + "Highlight any categories where the user might exceed their budget soon, "
                 + "and suggest cost-saving measures.\n");
 
         return sb.toString();
     }
-
-    /**
-     * Get all insights for the currently logged-in user (or for all users if an admin).
-     * This method is optional, but helps fetch data for the frontend.
-     */
-//    public List<Insight> getInsightsForUser(String email) {
-//        return insightRepository.findByUserEmail(email);
-//    }
 
     public Insight getInsightForUser(String email) {
         return insightRepository.findByUserEmail(email).orElse(null);

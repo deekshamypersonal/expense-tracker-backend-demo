@@ -17,8 +17,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-#      - name: Install Heroku CLI
-#        run: curl https://cli-assets.heroku.com/install.sh | sh
+      - name: Install Heroku CLI
+        run: curl https://cli-assets.heroku.com/install.sh | sh
 #
 #      - name: Set Heroku Stack to Container
 #        run: |

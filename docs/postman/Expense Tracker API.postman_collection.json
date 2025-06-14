@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "1946abbb-171f-4621-bdd6-9a6876502bce",
+		"name": "Expense Tracker API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12000632"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// ⭐ After /users/login responds, store the JWT in {{jwt}}\r",
+							"const raw = pm.response.headers.get('Authorization');\r",
+							"\r",
+							"if (raw) {\r",
+							"  // Ensure exactly one \"Bearer \" prefix\r",
+							"  const token = raw.startsWith('Bearer ') ? raw : `Bearer ${raw}`;\r",
+							"  pm.environment.set('jwt', token);\r",
+							"} else {\r",
+							"  console.warn('No Authorization header found in login response');\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"userdemo@gmail.com\",\r\n  \"password\": \"Demo2024!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/login",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Expenses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/getExpense",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"getExpense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Grouped Expense",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/getGroupedExpense",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"getGroupedExpense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Budgets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/getBudgets",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"getBudgets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Total",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/getTotal",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"getTotal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Insights",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/insights",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"insights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Expense",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 42.75,\r\n  \"category\": \"Food\",\r\n  \"date\": \"2025-06-13\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/setExpense",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"setExpense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Budget",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"category\": \"Food\",\r\n  \"limit\": 300\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/setBudget",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"setBudget"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Expense",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/deleteExpense/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"deleteExpense",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Budget",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/deleteBudget/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"deleteBudget",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

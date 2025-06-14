@@ -49,7 +49,7 @@ public class WebSecurity {
                 .authorizeHttpRequests(req ->
                         req.requestMatchers("/register").permitAll()
                                 .requestMatchers("/test").permitAll()
-                                .requestMatchers("/test1").permitAll()
+                                .requestMatchers("/ping").permitAll()
 
                                 .requestMatchers("/h2-console/**").permitAll()
                                 .anyRequest().authenticated()
