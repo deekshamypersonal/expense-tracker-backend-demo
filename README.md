@@ -141,3 +141,35 @@ On the login screen, these demo credentials may be pre-filled for convenience.
       [http://localhost:5173](http://localhost:5173)
 
 
+---
+
+
+# 📌 API at a Glance
+
+| # | Method | Path | Auth? | Body (JSON example) | Purpose |
+|---|--------|------|-------|---------------------|---------|
+| 1 | `POST` | `/users/login` | **No** | `{ "email": "userdemo@gmail.com", "password": "Demo2024!" }` | Authenticate and receive a JWT (token is returned in the **Authorization** response header). |
+| 2 | `GET` | `/getExpense` | **Yes** | — | List every individual expense. |
+| 3 | `GET` | `/getGroupedExpense` | **Yes** | — | Get totals grouped by category (for pie-chart view). |
+| 4 | `GET` | `/getBudgets` | **Yes** | — | List all budget limits you’ve set. |
+| 5 | `GET` | `/getTotal` | **Yes** | — | Overall spending total across all expenses. |
+| 6 | `GET` | `/api/insights` | **Yes** | — | Fetch an AI-generated spending insight for the logged-in user. |
+| 7 | `POST` | `/setExpense` | **Yes** | `{ "amount": 42.75, "category": "Food", "date": "2025-06-13" }` | Add a single expense (OCR is used if an image is attached). |
+| 8 | `POST` | `/setBudget` | **Yes** | `{ "category": "Food", "limit": 300 }` | Create or update a budget for a category. |
+| 9 | `DELETE` | `/deleteExpense/{id}` | **Yes** | — | Remove one expense by its ID. |
+| 10 | `DELETE` | `/deleteBudget/{id}` | **Yes** | — | Remove a budget limit by its ID. |
+| 11 | `POST` | `/register` | No | `{ "email": "...", "password": "...", "name": "..." }` | Create a new user. |
+
+
+---
+
+# 📌 Test With Postman
+
+> **Files you’ll need (already in this repo)**  
+> * `docs/postman/ExpenseTracker.postman_collection.json`  
+> * `docs/postman/ExpenseTracker_environment.json`
+
+
+
+
+
