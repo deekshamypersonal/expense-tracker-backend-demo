@@ -89,7 +89,7 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 1. Docker Desktop (Windows/Mac) or docker-engine (Linux)
 
 ### Backend Setup
-1. Run the container. If the image isn’t on machine Docker pulls it from Docker Hub, then starts the container.
+1. Run the command. If the image isn’t on machine Docker pulls it from Docker Hub, then starts the container.
    ```bash
    docker run -p 8080:8080 deekshatrip1/expense-tracker:latest
 
