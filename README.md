@@ -1,4 +1,4 @@
-## Live Demo
+# Live Demo
 
 The deployed application can be accessed via the following link:
 
