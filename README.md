@@ -127,13 +127,17 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/expense-tracker.git
-2. Install dependencies:
+   cd expense-tracker-frontend
+2. Override backend url:
+    ```bash
+   echo "VITE_API_URL=http://localhost:8080" > .env.local
+3. Install dependencies:
    ```bash
    npm install
-3. Start the development server:
+4. Start the development server:
    ```bash
    npm start
 4. The frontend will be available at:
-      [http://localhost:8080](http://localhost:2156)
+      [http://localhost:5173](http://localhost:5173)
 
 
