@@ -89,9 +89,9 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 ## ✨ Backend Setup (With Docker)
 
 ### Prerequisites
-1. Docker Desktop (Windows/Mac) or docker-engine (Linux)
+1. Docker Desktop (Windows/Mac) or docker-engine (Linux) running
 
-### Backend Setup
+### Steps:
 1. Run the command. If the image isn’t on machine Docker pulls it from Docker Hub, then starts the container.
    ```bash
    docker run -p 8080:8080 deekshatrip1/expense-tracker:latest
@@ -108,7 +108,7 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 1. **Java** (JDK 17 or higher)
 2. **Tesseract OCR** (optional, for bill upload api)
 
-### Backend Setup
+### Steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/expense-tracker.git
@@ -123,7 +123,7 @@ On the login screen, these demo credentials may be pre-filled for convenience.
       [http://localhost:8080](http://localhost:8080)
 5. Verify it’s running. open http://localhost:8080/ping in your browser and look for pong
 
-### Frontend Setup
+## ✨ Frontend Setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/expense-tracker.git
