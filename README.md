@@ -4,6 +4,9 @@ The deployed application can be accessed via the following link:
 
 🔗 [Expense Tracker App](https://willowy-licorice-a48823.netlify.app/login)
 
+🔗 [Expense Tracker App](https://willowy-licorice-a48823.netlify.app/login) _(opens in new tab)_
+
+
 
 # 📌 GitHub Repositories
 
