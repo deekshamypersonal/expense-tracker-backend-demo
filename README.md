@@ -102,22 +102,23 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 ## ✨ Backend Setup (Without Docker)
 
 ### Prerequisites
-1. **Java** (JDK 8 or higher)
-2. **Node.js** and **npm/yarn**
-3. Maven (for Spring Boot)
+1. **Java** (JDK 17 or higher)
+2. **Tesseract OCR** (optional, for bill upload api)
 
 ### Backend Setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/expense-tracker.git
-2. Build the project using Maven:
+   cd expense-tracker-backend
+2. Build the project:
    ```bash
-   mvn clean install
+   ./mvnw clean install
 3. Run the application:
    ```bash
-   mvn spring-boot:run
+   m./mvnw spring-boot:run
 4. The backend will be available at:
       [http://localhost:8080](http://localhost:8080)
+5. Verify it’s running. open http://localhost:8080/ping in your browser and look for pong
 
 ### Frontend Setup
 1. Clone the repository:
