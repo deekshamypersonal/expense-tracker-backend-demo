@@ -4,22 +4,21 @@ The deployed application can be accessed via the following link:
 
 🔗 [Expense Tracker App](https://willowy-licorice-a48823.netlify.app/login)
 
-🔗 [Expense Tracker App](https://willowy-licorice-a48823.netlify.app/login) _(opens in new tab)_
-
+Demo credentials will be pre-filled for convenience. This account is for demo and has small limits (e.g., you can add up to 10 expenses)
 
 
 # 📌 GitHub Repositories
 
 ### Backend Repository
-🔗 [Expense Tracker Backend](https://github.com/deekshamypersonal/expense-tracker-backend.git)
+🔗 [Expense Tracker Backend](https://github.com/deekshamypersonal/expense-tracker-backend-demo.git)
 
 ### Frontend Repository
-🔗 [Expense Tracker Frontend](https://github.com/deekshamypersonal/expense-tracker-frontend.git)
+🔗 [Expense Tracker Frontend](https://github.com/deekshamypersonal/expense-tracker-frontend-demo.git)
 
 
 # 📌 Expense Tracker
 
-This Monthly Expense Tracking application built with **Spring Boot** (backend) and **React** (frontend). Users can:
+This Monthly Expense Tracking application is built with **Spring Boot** (backend) and **React** (frontend). Users can:
 - Add expenses manually or by uploading a bill image (OCR-powered). The app automatically categorizes the expense.
 - View all monthly expenses in a sortable list and delete entries as needed.
 - Manage budgets and receive alerts if spending exceeds the set budget for any category.
@@ -43,7 +42,7 @@ Use the following credentials to log in:
 - **Username (Email):** `userdemo@gmail.com`
 - **Password:** `Demo2024!`
 
-On the login screen, these demo credentials may be pre-filled for convenience.
+On the login screen, these demo credentials will be pre-filled for convenience. This account is for demo and has small limits (e.g., you can add up to 10 expenses). For full access, signup.
 
 ---
 
