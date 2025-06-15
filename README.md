@@ -165,9 +165,18 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 
 # 📌 Test With Postman
 
-> **Files you’ll need (already in this repo)**  
-> * `docs/postman/ExpenseTracker.postman_collection.json`  
-> * `docs/postman/ExpenseTracker_environment.json`
+1. **Download** the collection and environment files from the following location:  
+   [https://github.com/deekshamypersonal/expense-tracker-backend-demo/tree/main/docs/postman](https://github.com/deekshamypersonal/expense-tracker-backend-demo/tree/main/docs/postman)
+
+2. **Import** both files into Postman:
+   - `Expense Tracker API.postman_collection.json`
+   - `ExpenseTracker-Local.postman_environment.json`
+
+3. **Send the login request**  
+   - Demo credentials are already filled.  
+   - The token will be automatically added to the environment after login.
+
+4. **Test other APIs** using the imported collection.
 
 
 
