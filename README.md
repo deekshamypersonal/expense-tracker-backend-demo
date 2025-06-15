@@ -5,7 +5,7 @@ The deployed application can be accessed via the following link:
 🔗 [Expense Tracker App](https://willowy-licorice-a48823.netlify.app/login)
 
 
-## GitHub Repositories
+# 📌 GitHub Repositories
 
 ### Backend Repository
 🔗 [Expense Tracker Backend](https://github.com/deekshamypersonal/expense-tracker-backend.git)
@@ -14,17 +14,18 @@ The deployed application can be accessed via the following link:
 🔗 [Expense Tracker Frontend](https://github.com/deekshamypersonal/expense-tracker-frontend.git)
 
 
-# Expense Tracker
+# 📌 Expense Tracker
 
-An Expense Tracking application built with **Spring Boot** (backend) and **React** (frontend). Users can:
+This Monthly Expense Tracking application built with **Spring Boot** (backend) and **React** (frontend). Users can:
 - Add expenses manually or by uploading a bill image (OCR-powered). The app automatically categorizes the expense.
+- View all monthly expenses in a sortable list and delete entries as needed.
 - Manage budgets and receive alerts if spending exceeds the set budget for any category.
 - View visual summaries via an interactive pie chart.
 - Gain **AI-powered weekly insights** into their monthly expenditures for better financial planning.
 
 ---
 
-## Table of Contents
+# 📌 Table of Contents
 - [Demo Credentials](#demo-credentials)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
@@ -34,7 +35,7 @@ An Expense Tracking application built with **Spring Boot** (backend) and **React
 
 ---
 
-## Demo Credentials
+# 📌 Demo Credentials
 Use the following credentials to log in:
 - **Username (Email):** `userdemo@gmail.com`
 - **Password:** `Demo2024!`
@@ -43,10 +44,9 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 
 ---
 
-## Features
-- **User Authentication:** Demo user can log in (sign-up is disabled).
+# 📌 Features
+- **User Authentication (jwt-based):** Demo user can log in and signup.
 - **Add Expense Manually:** Provide description, category, and amount.
-- **Visual Budget Comparison:** Detect over-budget usage.
 - **Pie Chart Visualization:** Displays categorized expenses in an interactive chart.
 - **Budget Management:** Set budgets for each category and get alerts for over-budget expenses.
 - **OCR Bill Upload:** Extracts text from the uploaded image (PNG/JPEG) and  automatically assigns expenditure category.
@@ -54,15 +54,15 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 
 ---
 
-## Tech Stack
-- **Frontend:** React (JavaScript), Tailwind CSS / Basic CSS for styling, Chart.js for pie chart visualization.
+# 📌 Tech Stack
 - **Backend:** Spring Boot (Java), Spring Security (JWT-based authentication), SQL database.
+- **Frontend:** React (JavaScript), Tailwind CSS / Basic CSS for styling, Chart.js for pie chart visualization.
 - **OCR:** Tesseract (via Tess4J).
 - **Build/Deployment:** Maven for Spring Boot backend and NPM/Yarn for React frontend.
 
 ---
 
-## Screenshots
+# 📌 Screenshots
 
 ### Login Page
 ![Login Page](https://github.com/user-attachments/assets/e55edc0a-402e-4c3b-a0e3-d7cc3c063d3f)
@@ -81,7 +81,25 @@ On the login screen, these demo credentials may be pre-filled for convenience.
 
 ---
 
-## Setup & Installation
+# 📌 Local Setup & Installation
+
+## ✨ Backend Setup (With Docker)
+
+### Prerequisites
+1. Docker Desktop (Windows/Mac) or docker-engine (Linux)
+
+### Backend Setup
+1. Run the container. If the image isn’t on machine Docker pulls it from Docker Hub, then starts the container.
+   ```bash
+   docker run -p 8080:8080 deekshatrip1/expense-tracker:latest
+
+2. The backend will be available at:
+      [http://localhost:8080](http://localhost:8080)
+
+3. Verify it’s running. open http://localhost:8080/ping in your browser and look for pong
+   
+
+## ✨ Backend Setup (Without Docker)
 
 ### Prerequisites
 1. **Java** (JDK 8 or higher)
