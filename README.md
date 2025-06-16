@@ -64,10 +64,12 @@ On the login screen, these demo credentials will be pre-filled for convenience. 
 
 ---
 
-# 📌 Screenshots
+# 📌 Demo Video
+
+https://github.com/user-attachments/assets/ad80290a-43f2-4547-adb1-5343885c48b3
 
 Screenshots available at [Screenshots](https://docs.google.com/document/d/1mvHq8YTXcNLxeuCg57eiQ69Ypc3N_aELmJsEsDH9bPc/edit?tab=t.0)
-https://github.com/user-attachments/assets/94470169-4596-4f49-8ece-cca5b607a9e1
+
 
 ---
 
