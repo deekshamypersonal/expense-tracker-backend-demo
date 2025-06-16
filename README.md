@@ -66,20 +66,7 @@ On the login screen, these demo credentials will be pre-filled for convenience. 
 
 # 📌 Screenshots
 
-### Login Page
-![Login Page](https://github.com/user-attachments/assets/e55edc0a-402e-4c3b-a0e3-d7cc3c063d3f)
-*Login page with pre-filled demo credentials.*
-
-### Expense Dashboard
-![Expense Dashboard](https://github.com/user-attachments/assets/53eb3e39-69ce-4a92-9443-d68c5817756b)
-
-![Expense Dashboard](https://github.com/user-attachments/assets/3af3ab03-4ad5-4e52-a04d-a0917a73c427)
-*Dashboard showcasing pie chart and expense list.*
-
-### OCR Bill Upload
-![OCR Bill Upload](https://github.com/user-attachments/assets/7ae09b00-0233-4314-9981-229685f3974a)
-*Upload bills and auto-extract details using OCR.*
-
+Screenshots available at [Screenshots](https://docs.google.com/document/d/1mvHq8YTXcNLxeuCg57eiQ69Ypc3N_aELmJsEsDH9bPc/edit?tab=t.0)
 
 ---
 
