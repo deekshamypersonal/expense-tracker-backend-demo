@@ -61,6 +61,7 @@ On the login screen, these demo credentials will be pre-filled for convenience. 
 - **Frontend:** React (JavaScript), Tailwind CSS / Basic CSS for styling, Chart.js for pie chart visualization.
 - **OCR:** Tesseract (via Tess4J).
 - **Build/Deployment:** Maven for Spring Boot backend and NPM/Yarn for React frontend.
+- **Gemini API to gain insight**
 
 ---
 
