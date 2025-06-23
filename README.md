@@ -32,9 +32,9 @@ This Monthly Expense Tracking application is built with **Spring Boot** (backend
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Demo Video](#demo-video)
-- [Setup & Installation](#setup--installation)
-- [API at a Glance](#APIataGlance)
-- [Test With Postman](#TestWithPostman)
+- [Local Setup & Installation](#local-setup--installation)
+- [API at a Glance](#api-at-a-glance)
+- [Test With Postman](#test-with-postman)
 
 ---
 
