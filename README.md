@@ -105,7 +105,7 @@ Screenshots available at [Screenshots](https://docs.google.com/document/d/1mvHq8
    ```bash
    git clone https://github.com/your-username/expense-tracker.git
    cd expense-tracker-backend
-2. Build the project:
+2. Build the project (Maven via ./mvnw – no need to install manually)):
    ```bash
    ./mvnw clean install
 3. Run the application:
