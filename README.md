@@ -84,7 +84,7 @@ Screenshots available at [Screenshots](https://docs.google.com/document/d/1mvHq8
 1. Docker Desktop (Windows/Mac) or docker-engine (Linux) running
 
 ### Steps:
-1. Run the command. If the image isn’t on machine Docker pulls it from Docker Hub, then starts the container.
+1. Run the command. If the image isn’t on machine, Docker pulls it from Docker Hub, then starts the container.
    ```bash
    docker run -p 8080:8080 deekshatrip1/expense-tracker:latest
 
