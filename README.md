@@ -60,7 +60,7 @@ On the login screen, these demo credentials will be pre-filled for convenience. 
 # 📌 Tech Stack
 - **Backend:** Java 17, Spring Boot, Spring Security (JWT-based authentication), SQL
 - **Frontend:** React (JavaScript), Tailwind CSS / Basic CSS for styling, Chart.js for pie chart visualization.
-- **Build/Deployment:** Maven for Spring Boot backend and NPM/Yarn for React frontend.
+- **Build/Deployment:** Maven for Spring Boot backend and NPM for React frontend.
 - **API Integration: Gemini API (for generating insights)**
 - **Deployment: Dockerized and deployed on Heroku**
 - **CI/CD: GitHub Actions**
